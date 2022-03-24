@@ -1,16 +1,19 @@
 import React,{useState,useEffect} from 'react';
 import { Nav,NavContainer,NavLogo,Navheading, NavMenu, NavItems,Image } from './Navbarele';
+import { BrowserRouter as Router, Routes, Route,Link} from "react-router-dom";
 
 const Navbar = () => {
   return (
       <Nav>
 
     <NavContainer>
-        <NavLogo>
+    <Link style={{ textDecoration: 'none' }} to='/'><NavLogo>
             <Navheading>SIH-HASHD</Navheading>
-        </NavLogo>
+        </NavLogo></Link>
         <NavMenu>
             <NavItems>
+                {/* <Homebtn></Homebtn> */}
+                
                 {/* <NavLinks {}/>
                 <NavLinks/>
                 <NavLinks/> */}

@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './pages/Home';
-import {BrowserRouter as Router} from 'react-router-dom'
-
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Review from './pages/Review';
+import React from 'react';
 
 // import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
@@ -25,12 +26,47 @@ import {BrowserRouter as Router} from 'react-router-dom'
 // const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
-function App() {
+// import ContactUs component
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {apiResponse:""}
+  }
+  callAPI(){
+    fetch("http://localhost:9000/testAPI")
+    .then(res => res.text())
+    .then(res => this.setState({apiResponse: res}))
+  }
+  componentWillMount(){
+    this.callAPI();
+  }
+render() {
+  console.log(this.state.apiResponse)
   return (
     <Router className="App">
-      <Home/>
+      <Routes>
+          {/* This route is for home component 
+          with exact path "/", in component props 
+          we passes the imported component*/}
+          <Route path="/" element={<Home/>} />
+            
+          {/* This route is for about component 
+          with exact path "/about", in component 
+          props we passes the imported component*/}
+          <Route path="/review" element={<Review/>} />
+            
+          {/* This route is for contactus component
+          with exact path "/contactus", in 
+          component props we passes the imported component*/}
+            
+          {/* If any route mismatches the upper 
+          route endpoints then, redirect triggers 
+          and redirects app to home component with to="/" */}
+          {/* <Redirect to="/" /> */}
+        </Routes>
     </Router>
   );
+}
 }
 
 export default App;

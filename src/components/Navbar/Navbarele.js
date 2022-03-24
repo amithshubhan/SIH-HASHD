@@ -2,45 +2,63 @@ import styled from 'styled-components';
 import { Link as LinkR } from 'react-router-dom';
 
 export const Nav = styled.nav`
-    height: 100px;
+    height: 150px;
     width: 100%;
     top:0px;
-    background: #b6eb7a;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background: #587308;
+    // border-bottom-left-radius: 30px;
+    // border-bottom-right-radius: 30px;
+    display: flex;
+    justify-column: center; 
+    align-items:center;
+
 `
 export const NavContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 70px;
+
+
     
 `;
 
 export const Navheading = styled.div`
+    // border: solid black 2px;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 800;
     text-align: center;
-    margin: 20px 5px;
+    margin: 0 20px;
     letter-spacing: 2px;
-    color: #000;
+    color: #fff;
+    @media screen and (max-width: 760px){
+        font-size: 30px;
+        margin: 20px 2px;
+
+    }
 `
 export const NavLogo = styled.div`
-    height: 70px;
+
     justify-content: center;
     align-items: center;
-    width: 200px;
+
     margin: 0 50px;
     cursor: pointer;
+    @media screen and (max-width: 760px){
+        margin: 0 10px;
+
+    }
 `;
 export const NavMenu = styled.div`
     display: flex;
     align-items: center;
     text-align: center;
-    width: 500px;
     font-size: 30px;
     padding: 0 30px;
+    @media screen and (max-width: 760px){
+        padding: 0 15px;
+
+    }
 `;
 export const NavItems = styled.div`
     font-family: 'IBM Plex Mono', monospace;

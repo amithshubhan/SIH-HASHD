@@ -1,21 +1,33 @@
 import React from 'react'
 import Hero from './Hero'
 import Heading from './Heading'
+import { ContainerMain } from './ContainerMain'
 
-const Maincontainer = () => {
+const Maincontainer = ({obj}) => {
+  var mp = new Map();
+    obj.map((items,key)=>{
+        console.log('RID in Mc is',items.RID);
+        return mp.set(items.RID,items);
+        
+    })
+    
+    console.log('this is the get function',mp.get('1648130689933'));
   return (
       <>
     <Heading>Queries</Heading>
-    <Hero name="potatoes1" rid="12345678"/>
-    <Hero name="potatoes2" rid="12345678"/>
-    <Hero name="potatoes3" rid="12345678"/>
-    <Hero name="potatoes4" rid="12345678"/>
-    <Hero name="potatoes5" rid="12345678"/>
-    <Hero name="potatoes6" rid="12345678"/>
-    <Hero name="potatoes7" rid="12345678"/>
-    <Hero name="potatoes8" rid="12345678"/>
-    <Hero name="potatoes9" rid="12345678"/>
-    <Hero name="potatoes10" rid="12345678"/>
+    <ContainerMain>
+    {
+      obj.map((item,key) => {
+        return <Hero name={item.crop} rid={item.RID} mp={mp}/>;
+      })
+    }
+    
+    {/* {Object.entries(obj['details']).map((item) => {
+      // console.log(item); 
+      return <Hero name={item[1].desc} rid={item[1].rid}/>;
+      // return <Hero name={item.desc} rid={item.rid}/>
+    })} */}
+    </ContainerMain>
     </>
   )
 }

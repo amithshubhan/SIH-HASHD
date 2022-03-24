@@ -5,15 +5,19 @@ export const HeroContainer = styled.div`
 
 `;
 export const HeroCards = styled.div`
-    height: 100px;
     margin: 30px;
     padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #c7d0d8;
+    background-color: #9ab451;
     border-radius: 15px;
-    opacity: 0.8;
+    color: black;
+    box-shadow: 10px 10px 5px grey;
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        transform: scale(1.05);
+    }
      
 `;
 export const Heroleft = styled.div`
@@ -24,17 +28,24 @@ export const Dtitle = styled.div`
     font-size: 40px;
     font-family: 'IBM Plex Mono', monospace;
     margin: 10px;
+    @media screen and (max-width: 760px){
+        margin: 8px;
+        font-size: 20px
+    }
 `;
 export const RIDNO = styled.p`
     font-size: 15px;
     font-family: 'IBM Plex Mono', monospace;
     margin: 3px 5px;
     padding: 2px;
+    @media screen and (max-width: 760px){
+        font-size: 16px
+    }
 `
 export const Verify =styled.div`
     
     height: 50px;
-    background-color: #708160;
+    background-color: #fff;
     width: 100px;
     border-radius: 20px;
     font-family: 'IBM Plex Mono', monospace;
@@ -43,6 +54,7 @@ export const Verify =styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black;
     
 
 `;
@@ -81,3 +93,6 @@ export const HeaderContainer = styled.div`
     justify-content: left;
     align-items: center;
 `
+
+
+

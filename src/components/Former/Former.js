@@ -1,17 +1,45 @@
 
 import React, { useState, useRef } from 'react';
+import { Navigate } from 'react-router';
 import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
+import {db} from '../../config' 
 
-const Former = () => {
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+
+const Former = ({rid,partdetail}) => {
+  var linkarr;
+  var productarr;
+  console.log("partdetail in Former js is" ,partdetail)
+  async function update(){
+    console.log('updating');
+var getdb =db.collection('reports').doc(partdetail.key);
+console.log(partdetail.key);
+partdetail.message = message;partdetail.links = links;
+partdetail.products = products;
+const res = await getdb.update({message: message,links: links,products: products});
+console.log(res);
+}
+  let navigate = useNavigate();
+ const toSend = (event) => {
+    event.preventDefault();
+    
+    linkarr = links.split(',');
+    productarr = products.split(',');
+    console.log(linkarr);
+    console.log(productarr);
+    update();
+    
+  };
+
+  const [products, setProducts] = useState('');
+  const [links, setLinks] = useState('');
   const [message, setMessage] = useState('');
   const form = useRef();
   const [error, setError] = useState(false);
   return (
     <>
-      <FormStyle  name="form1" ref={form} autoComplete="new-password">
+      <FormStyle  name="form1" ref={form} autoComplete="new-password" onSubmit={toSend}>
         <div className="form-group">
           <label htmlFor="name">
             <PText>
@@ -20,10 +48,10 @@ const Former = () => {
             <textarea
             autoComplete="off"
               type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              id="message"
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </label>
         </div>
@@ -34,11 +62,12 @@ const Former = () => {
             </PText>
             <textarea
             autoComplete="off"
-              type="email"
+              type="text"
+              placeholder="Enter the values with comma separated"
               id="email"
               name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={links}
+              onChange={(e) => setLinks(e.target.value)}
             />
           </label>
         </div>
@@ -49,15 +78,16 @@ const Former = () => {
             </PText>
             <textarea
               type="text"
-              id="message"
-              name="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Enter the values with comma separated"
+              id="products"
+              name="products"
+              value={products}
+              onChange={(e) => setProducts(e.target.value)}
             />
           </label>
         </div>
         <div className="btn">
-        <button type="submit">Send</button>
+        <button type="submit" >Send</button>
         </div>
       </FormStyle>
     </>

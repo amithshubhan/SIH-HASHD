@@ -22,7 +22,7 @@ const EnterBtn = ({partdetail}) => {
     <>
     <BtnCont>
         <BtnHere>
-            <Link style={{ textDecoration: 'none' ,color: 'black',fontWeight: 600}} state = {{rid:{rid}}} to='/feedback'>Give Feedback</Link>
+            <Link style={{ textDecoration: 'none' ,color: 'black',fontWeight: 600}} state = {{rid:{rid},partdetail:{partdetail}}} to='/feedback'>Give Feedback</Link>
         </BtnHere>
     </BtnCont>
     </>

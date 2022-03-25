@@ -3,6 +3,7 @@ import './App.css';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Review from './pages/Review';
+import Feedback from './pages/Feedback';
 import React from 'react';
 
 // import { initializeApp } from "firebase/app";
@@ -54,6 +55,7 @@ render() {
           with exact path "/about", in component 
           props we passes the imported component*/}
           <Route path="/review" element={<Review/>} />
+          <Route path="/feedback" element={<Feedback/>} />
             
           {/* This route is for contactus component
           with exact path "/contactus", in 

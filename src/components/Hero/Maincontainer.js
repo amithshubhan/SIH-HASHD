@@ -6,7 +6,7 @@ import { ContainerMain } from './ContainerMain'
 const Maincontainer = ({obj}) => {
   var mp = new Map();
     obj.map((items,key)=>{
-        console.log('RID in Mc is',items.RID);
+        console.log('key in main container  is',key);
         return mp.set(items.RID,items);
         
     })
@@ -18,6 +18,7 @@ const Maincontainer = ({obj}) => {
     <ContainerMain>
     {
       obj.map((item,key) => {
+        if(item.lock === "0")
         return <Hero name={item.crop} rid={item.RID} mp={mp}/>;
       })
     }

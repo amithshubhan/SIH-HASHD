@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 // import details from '../details.json'
 import MainReviewContainer from '../components/MainReview/MainReviewContainer';
 import {db} from '../config' 
+import EnterBtn from '../components/MainReview/EnterBtn';
 
 var details = `{
     "details":{
@@ -88,7 +89,7 @@ var details = `{
     }
 }`;
 
-const Review = () => {
+const Review =  () => {
     const location = useLocation()
     // const [loading,setLoading] = useState(true);
     // const [posts,setPosts] = useState([]);
@@ -111,6 +112,10 @@ const Review = () => {
     //     return <h1>loading......</h1>
     // }
     
+//   var key;
+//   for(var [x,nkey] in posts){
+//     if(x.)
+//   }
   var mp = location.state.mp;
   var rid = location.state.rid;
 
@@ -123,8 +128,16 @@ console.log('map get in review is ',mp.get(Rid));
 partdetail = mp.get(Rid);
 // partdetail.lock = 1;
 
-
-
+async function update(){
+    console.log('updating');
+var getdb =db.collection('reports').doc(partdetail.key);
+console.log(partdetail.key);
+partdetail.lock = 1;
+const res = await getdb.update({lock: "1"});
+console.log(res);
+}
+// update();
+// console.log(partdetails.)
 
 console.log("partdetail is",partdetail);
 
@@ -132,6 +145,7 @@ console.log("partdetail is",partdetail);
     <>
     <Navbar></Navbar>
     <MainReviewContainer partdetail = {partdetail}/>
+    <EnterBtn partdetail = {partdetail}/>
     </>
   )
 }

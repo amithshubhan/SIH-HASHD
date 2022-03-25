@@ -114,6 +114,8 @@ const Home = () => {
                 // var obj = JSON.parse(doc.);
                 // console.log("doc is" + obj);
                 getPostsFromFirebase.push({...doc.data(),key:doc.id});
+                // console.log(doc.id," ",doc.data().RID);
+
             });
             setPosts(getPostsFromFirebase);
             setLoading(false); 

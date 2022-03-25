@@ -4,9 +4,11 @@ import { ImageContainer } from './Imagepartele'
 
 const Imagepart = ({partdetail}) => {
     console.log('part detail in imagepart',partdetail);
-    var imageUrls = [];
-    imageUrls.push(partdetail.imageUrls);
-    console.log(imageUrls);
+    var imageUrls;
+    imageUrls = JSON.parse(partdetail.imageUrls);
+    // console.log('image urls in image part is',imageUrls);
+    // imageUrls.push(partdetail.imageUrls);
+    // console.log(imageUrls);
   return (<>
     <ImageContainer>
     {

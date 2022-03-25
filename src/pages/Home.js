@@ -1,5 +1,6 @@
 import { QuerySnapshot } from '@firebase/firestore';
 import React, {useState,useEffect} from 'react'
+import Loading from '../components/Hero/Loading';
 import Maincontainer from '../components/Hero/Maincontainer'
 import Navbar from '../components/Navbar/Navbar';
 import {db} from '../config' 
@@ -123,7 +124,7 @@ const Home = () => {
         return () => subscriber(); 
     }, []);
     if(loading){
-        return <h1>loading......</h1>
+        return <Loading></Loading>
     }
     // const [loading,setLoading] = useState(true);
     // const [posts,setPosts] = useState([]);

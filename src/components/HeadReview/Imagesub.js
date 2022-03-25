@@ -1,6 +1,7 @@
 import React from 'react'
 import { Imagesegment,Downloadbtn,Imagesubseg,Downloadbtncomp } from './Imagepartele'
 import { FiDownload } from "react-icons/fi";
+import { AiFillEye } from "react-icons/ai";
 
 import Button from 'react-bootstrap/Button';
 
@@ -25,9 +26,10 @@ const Imagesub = ({url}) => {
             <img src={url} alt="plant" />
         </Imagesegment>
         <Downloadbtn>
-        <FiDownload />
+        
         <Downloadbtncomp>
-            <Button onClick={downloadImage}>Download</Button>
+        
+            <Button onClick={downloadImage}><AiFillEye />  VIEW</Button>
             </Downloadbtncomp>
         </Downloadbtn>
         </Imagesubseg>

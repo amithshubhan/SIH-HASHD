@@ -34,8 +34,12 @@ export const Navheading = styled.div`
     @media screen and (max-width: 760px){
         font-size: 30px;
         margin: 20px 2px;
+        img{
+            width:200px;
+        }
 
     }
+
 `
 export const NavLogo = styled.div`
 

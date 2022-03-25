@@ -25,6 +25,9 @@ padding: 10px;
 font-family: 'IBM Plex Mono', monospace;
 font-size: 60px;
 font-weight: 800;
+@media screen and (max-width:760px){
+    font-size: 30px;
+}
 `;
 export const HeadCont = styled.div`
     display: flex;
@@ -36,9 +39,16 @@ export const HeadCont = styled.div`
     border-radius: 20px;
     color:white;
     box-shadow: 10px 10px 5px grey;
+    @media screen and (max-width:760px){
+        margin:10px;
+        padding: 10px;
+    }
     
 `;
 export const Smallcontent = styled.div`
     margin: 5px;
     padding: 5px;
+    @media screen and (max-width:760px){
+        font-size: 15px;
+    }
 `;

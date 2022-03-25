@@ -7,9 +7,9 @@ const Navbar = () => {
       <Nav>
 
     <NavContainer>
-    <Link style={{ textDecoration: 'none' }} to='/'>
+    <Link style={{ textDecoration: 'none' }} to='/home'>
       <NavLogo>
-            <Navheading>SIH-HASHD</Navheading>
+            <Navheading><img src="./sihlogo2.png" width="300px" alt = "logo icon"/></Navheading>
         </NavLogo></Link>
         <NavMenu>
             <NavItems>

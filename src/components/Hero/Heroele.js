@@ -32,6 +32,10 @@ export const Dtitle = styled.div`
         margin: 8px;
         font-size: 20px
     }
+    @media screen and (max-width: 900px){
+
+        font-size: 20px
+    }
 `;
 export const RIDNO = styled.p`
     font-size: 15px;
@@ -55,6 +59,10 @@ export const Verify =styled.div`
     justify-content: center;
     align-items: center;
     color: black;
+    @media screen and (max-width: 900px){
+        width: 60px;
+        height: 30px;
+    }
     
 
 `;

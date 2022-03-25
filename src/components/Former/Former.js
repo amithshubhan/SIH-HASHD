@@ -17,7 +17,9 @@ var getdb =db.collection('reports').doc(partdetail.key);
 console.log(partdetail.key);
 partdetail.message = message;partdetail.links = links;
 partdetail.products = products;
-const res = await getdb.update({message: message,links: links,products: products});
+partdetail.disease = disease;
+partdetail.lock="2";
+const res = await getdb.update({message: message,links: links,products: products,disease:disease,lock:"2"});
 console.log(res);
 }
   let navigate = useNavigate();
@@ -29,17 +31,41 @@ console.log(res);
     console.log(linkarr);
     console.log(productarr);
     update();
+    adder();
     
   };
-
+  async function adder(){
+  const res = await db.collection('disease').add({
+    disease: disease,
+    crop: partdetail.crop,
+    location:partdetail.location
+  });
+  console.log("added ",res);
+}
   const [products, setProducts] = useState('');
   const [links, setLinks] = useState('');
   const [message, setMessage] = useState('');
+  const [disease,setDisease] = useState('');
   const form = useRef();
   const [error, setError] = useState(false);
   return (
     <>
       <FormStyle  name="form1" ref={form} autoComplete="new-password" onSubmit={toSend}>
+      <div className="form-group">
+          <label htmlFor="name">
+            <PText>
+            Disease
+            </PText>
+            <input
+            autoComplete="off"
+              type="text"
+              id="disease"
+              name="disease"
+              value={disease}
+              onChange={(e) => setDisease(e.target.value)}
+            />
+          </label>
+        </div>
         <div className="form-group">
           <label htmlFor="name">
             <PText>
@@ -143,11 +169,12 @@ const FormStyle = styled.form`
   }
   input,
   textarea {
-    width: 100%;
-    font-size: 15px;
+    width: 70%;
+    font-size: 18px;
     padding: 1.2rem;
-    color: #5ff1d0;
-    background-color: #093a6b;
+    color: #04293A;
+    font-weight: 800;
+    background-color: #e8f6ef;
     outline: none;
     border: none;
     border-radius: 8px;
@@ -162,14 +189,17 @@ const FormStyle = styled.form`
   }
   .btn{
     display: flex;
-    justify-content: right;
+    justify-content: center;
+    margin-bottom: 30px;
+
 
   }
   button[type='submit'] {
-    background-color: #093a6b;
-    color: #5ff1d0;
+    background-color: darkgreen;
+    color: white;
     font-size: 15px;
     display: inline-block;
+
     outline: none;
     border: none;
     padding: 1rem 4rem;
@@ -180,8 +210,12 @@ const FormStyle = styled.form`
 
 const PText = styled.p`
 color: #000;
-font-size: 15px; 
+font-size: 30px; 
 font-family: 'Fira Code', monospace;
-
+background-color: lightgreen;
+margin: 10px;
+padding: 10px;
+border-radius: 10px;
+box-shadow: 10px 10px 5px grey;
 `;
 

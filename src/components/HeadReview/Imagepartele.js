@@ -5,12 +5,17 @@ export const ImageContainer = styled.div`
     grid-template-columns: repeat(3, 33%);
     margin: 20px;
     padding: 20px;
+    border-radius:10px;
+    @media screen and (max-width:760px){
+        grid-template-columns: repeat(1,100%);
+    }
 `
 export const Imagesegment = styled.div`
     padding: 20px;
     margin: 20px;
-    border: 5px solid lightgreen;
-    box-shadow: 10px 10px 5px grey;
+    // border: 5px solid lightgreen;
+    box-shadow: 10px 10px 10px 10px grey;
+    border-radius:10px;
     img {
         width:100%;
         height:undefined;

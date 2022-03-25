@@ -11,7 +11,7 @@ const Maincontainer = ({obj}) => {
         
     })
     
-    console.log('this is the get function',mp.get('1648130689933'));
+
   return (
       <>
     <Heading>Queries</Heading>

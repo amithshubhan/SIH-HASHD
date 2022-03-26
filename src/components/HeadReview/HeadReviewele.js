@@ -34,6 +34,7 @@ export const HeadCont = styled.div`
     flex-direction: column;
     justify-content: left;
     background-color: rgb(83,160,66);
+    height: 300px;
     margin: 30px;
     padding: 40px;
     border-radius: 20px;

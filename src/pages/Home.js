@@ -4,7 +4,8 @@ import Loading from '../components/Hero/Loading';
 import Maincontainer from '../components/Hero/Maincontainer'
 import Navbar from '../components/Navbar/Navbar';
 import {db} from '../config' 
-
+import HamIcon2 from '../components/Navbar/HamIcon';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 
 // var JSONdetails = db.collection('reports').
@@ -103,6 +104,20 @@ var details = `{
 }`;
 var obj = JSON.parse(details);
 const Home = () => {
+    const [isOpen,setIsOpen] = useState(false)
+
+    const toggle = () => {
+      setIsOpen(!isOpen)
+      if(isOpen === true){
+  
+        document.body.classList.remove('noscroll')
+        document.body.classList.add('scrollallow')
+      }else{
+  
+        document.body.classList.remove('scrollallow')
+        document.body.classList.add('noscroll')
+      }
+    }
     
     const [loading,setLoading] = useState(true);
     const [posts,setPosts] = useState([]);
@@ -154,7 +169,9 @@ const Home = () => {
     console.log("Posts is ",posts);
 
   return (<>
-    <Navbar></Navbar>
+    <Navbar toggle={toggle} isOpen={isOpen}></Navbar>
+    <HamIcon2 toggle={toggle} isOpen={isOpen}/>
+    <Sidebar isOpen = {isOpen} toggle={toggle}/>
     <Maincontainer obj = {posts}/>
     </>
   )

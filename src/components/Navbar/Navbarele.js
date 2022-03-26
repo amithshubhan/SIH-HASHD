@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Link as LinkR } from 'react-router-dom';
 
 export const Nav = styled.nav`
+    z-index: 10;
+    position: sticky;
     height: 150px;
     width: 100%;
     top:0px;
@@ -12,6 +14,17 @@ export const Nav = styled.nav`
     justify-column: center; 
     align-items:center;
 
+`
+export const MobileIcon = styled.div`
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-100%, 60%);   
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #fff
+    
 `
 export const NavContainer = styled.div`
     display: flex;

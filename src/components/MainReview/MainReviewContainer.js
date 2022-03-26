@@ -9,9 +9,10 @@ const MainReviewContainer = ({partdetail}) => {
     <ReviewCont style={{
         
       }}>
-
+    <Horizon>
     <HeadReview partdetail = {partdetail}></HeadReview>
     <MainDetails partdetail = {partdetail}></MainDetails>
+    </Horizon>
     <Imagepart partdetail = {partdetail}/>
     </ReviewCont>
     {/* <Imagepart></Imagepart> */}
@@ -20,6 +21,15 @@ const MainReviewContainer = ({partdetail}) => {
 }
 
 export default MainReviewContainer
+
+const Horizon = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  @media screen and (max-width:760px){
+  }
+`
 
 const ReviewCont = styled.div`
 background-color: transparent;

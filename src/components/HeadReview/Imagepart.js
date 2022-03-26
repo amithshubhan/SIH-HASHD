@@ -13,7 +13,7 @@ const Imagepart = ({partdetail}) => {
     <ImageContainer>
     {
       imageUrls.map((item,key) => {
-        return <Imagesub url={item}/>;
+        return <Imagesub url={item} partdetail={partdetail}/>;
       })
     }
 

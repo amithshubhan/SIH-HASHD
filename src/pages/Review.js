@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom'
 import MainReviewContainer from '../components/MainReview/MainReviewContainer';
 import {db} from '../config' 
 import EnterBtn from '../components/MainReview/EnterBtn';
+import HamIcon2 from '../components/Navbar/HamIcon';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 var details = `{
     "details":{
@@ -127,6 +129,21 @@ var partdetail = mp;
 console.log('map get in review is ',mp.get(Rid));
 partdetail = mp.get(Rid);
 // partdetail.lock = 1;
+const [isOpen,setIsOpen] = useState(false)
+
+const toggle = () => {
+  setIsOpen(!isOpen)
+  if(isOpen === true){
+
+    document.body.classList.remove('noscroll')
+    document.body.classList.add('scrollallow')
+  }else{
+
+    document.body.classList.remove('scrollallow')
+    document.body.classList.add('noscroll')
+  }
+}
+
 
 async function update(){
     console.log('updating');
@@ -144,6 +161,8 @@ console.log("partdetail is",partdetail);
   return (
     <>
     <Navbar></Navbar>
+    <HamIcon2 toggle={toggle} isOpen={isOpen}/>
+    <Sidebar isOpen = {isOpen} toggle={toggle}/>
     <MainReviewContainer partdetail = {partdetail}/>
     <EnterBtn partdetail = {partdetail}/>
     </>

@@ -16,11 +16,11 @@ export const Imagesegment = styled.div`
     // border: 5px solid lightgreen;
     box-shadow: 10px 10px 10px 10px grey;
     border-radius:10px;
-    img {
-        width:100%;
-        height:undefined;
-        aspectRatio: 1;
-    }
+    display: flex;
+    width: fit-content;
+    .modal-image{
+        // max-height: 150px !important;
+      }
 `;
 export const Downloadbtn = styled.div`
     display: flex;
@@ -46,3 +46,18 @@ export const Imagesubseg = styled.div`
     display: flex;
     flex-direction: column;
 `;
+export const ImageShow = styled.div`
+    width: 700px;
+    height: 100vh;
+    padding: 40px;
+    margin: 40px;
+`
+export const Closebtn =styled.button`
+    background: grey:
+    color: black;
+
+`
+export const ImageAlt = styled.div`
+    width: 800px;
+    height: 100vh;
+`

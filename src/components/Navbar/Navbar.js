@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react';
-import { Nav,NavContainer,NavLogo,Navheading, NavMenu, NavItems,Image } from './Navbarele';
+import { Nav,NavContainer,NavLogo,Navheading, NavMenu, NavItems,Image,MobileIcon } from './Navbarele';
 import { BrowserRouter as Router, Routes, Route,Link} from "react-router-dom";
+import HamIcon2 from './HamIcon';
 
-const Navbar = () => {
+const Navbar = ({toggle,isOpen}) => {
+  console.log('isOpen from navbar is',isOpen)
   return (
       <Nav>
 
@@ -13,6 +15,9 @@ const Navbar = () => {
         </NavLogo></Link>
         <NavMenu>
             <NavItems>
+            <MobileIcon onClick={toggle} isOpen={isOpen}>
+              
+            </MobileIcon>
                 {/* <Homebtn></Homebtn> */}
                 
                 {/* <NavLinks {}/>

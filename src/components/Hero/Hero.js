@@ -17,7 +17,7 @@ const Hero = ({name,rid,mp}) => {
                 <Heroright>
                     
                     {/* <Form action="/verify-rid" method="post"><Verify type="submit" name="verifybtn" value={rid}>Verify</Verify></Form> */}
-                <Link style={{ textDecoration: 'none' }} state = {{mp: {mp},rid:{rid}}}to='/review'><Verify>Verify</Verify></Link>
+                <Link style={{ textDecoration: 'none' }} state = {{mp: {mp},rid:{rid}}} to='/review'><Verify>Verify</Verify></Link>
                 </Heroright>
             </HeroCards>
         </HeroContainer>

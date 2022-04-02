@@ -22,12 +22,10 @@ const Sidebar = ({isOpen, toggle}) => {
         <SidebarWrapper>
         
             <SidebarMenu>
-                <SidebarLink to="/home" offset={-80} onClick={toggle}  smooth = {true} 
-                duration={500} 
-                spy={true} 
-                exact='true'><Counter>01.</Counter>Review</SidebarLink>
-                <SidebarLink to="/home" offset={-80} onClick={toggle}><Counter>02.</Counter>Not Review</SidebarLink>
+                <SidebarLink to="/home" offset={-80} onClick={toggle} ><Counter>01.</Counter>Reviewed</SidebarLink>
+                <SidebarLink to="/home" offset={-80} onClick={toggle}><Counter>02.</Counter>Not Reviewed</SidebarLink>
                 <SidebarLink to="/home" offset={-80} onClick={toggle}><Counter>03.</Counter>Correction</SidebarLink>
+                <SidebarLink to="/home" offset={-80} onClick={toggle} ><Counter>04.</Counter>Go to Home</SidebarLink>
             </SidebarMenu>
 
             {/* <SideBtnWrap>
